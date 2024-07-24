@@ -3,6 +3,7 @@
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 import localeConfig from '@/../locale.config';
+import PostForm from '@/components/post-form';
 
 // Just redirect page detecting preferred language of the user, usually the language of the browser UI
 export default function Page() {

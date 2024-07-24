@@ -9,6 +9,7 @@ import StickyPistonStudiosLogo from '@/assets/images/sticky_piston_studios_logo.
 import StickyWebPlatformLogoText from '@/assets/images/sticky_web_platform_logo_full_white.png';
 import Link from 'next/link';
 import NavBar from '@/components/landing_page/navbar';
+import PostForm from '@/components/post-form';
 
 
 export default async function Page({ 
@@ -35,6 +36,7 @@ export default async function Page({
           <div className='flex flex-col h-[100vh] p-[16px] md:p-[20%] justify-center'>
             <Image src={StickyWebPlatformLogoText.src} alt='' className="mx-auto w-full h-auto" width={1000} height={1000} priority/>
           </div>
+          <PostForm/>
 
         </div>
       </div>
