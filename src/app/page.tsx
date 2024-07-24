@@ -9,12 +9,12 @@ import PostForm from '@/components/post-form';
 export default function Page() {
     const router = useRouter();
 
-    useEffect(() => {
-      const browserLocale = navigator.language.split('-')[0]; // Extract the base language
-      const localeToRedirect = localeConfig.locales.includes(browserLocale) ? browserLocale : localeConfig.defaultLocale;
+    // useEffect(() => {
+    //   const browserLocale = navigator.language.split('-')[0]; // Extract the base language
+    //   const localeToRedirect = localeConfig.locales.includes(browserLocale) ? browserLocale : localeConfig.defaultLocale;
 
-      router.push(`/${localeToRedirect}`);
-    }, [router]);
+    //   //router.push(`/${localeToRedirect}`);
+    // }, [router]);
 
     return (
       <div className='flex h-screen w-screen justify-center items-center absolute'>
