@@ -6,17 +6,22 @@ import localeConfig from "@/../locale.config";
 
 export function middleware(request: NextRequest) {
 
-    // Try to get the higheset priority locale from the Accept-Language header
-    // (Which stores data in such format: "en-US,en;q=0.9,fr;q=0.8")
-    // let locale = acceptLanguage.get(request.headers.get('Accept-Language'))
-    // if (!locale) {
-    //     locale = localeConfig.defaultLocale;
-    // }
+ // Allow requests to Netlify functions to pass through
+ if (request.nextUrl.pathname. startsWith('/.netlify/functions')) {
+    return NextResponse.next();
+  }
 
-    // // Redirect if locale in path is not supported
-    // if (!localeConfig.locales.some(locale => request.nextUrl.pathname.startsWith(`/${locale}`)) && !request.nextUrl.pathname.startsWith('/_next')) {
-    //     return NextResponse.redirect(new URL(`/${locale}${request.nextUrl.pathname}`, request.url))
-    // }
+    //Try to get the higheset priority locale from the Accept-Language header
+    //(Which stores data in such format: "en-US,en;q=0.9,fr;q=0.8")
+    let locale = acceptLanguage.get(request.headers.get('Accept-Language'))
+    if (!locale) {
+        locale = localeConfig.defaultLocale;
+    }
+
+    // Redirect if locale in path is not supported
+    if (!localeConfig.locales.some(locale => request.nextUrl.pathname.startsWith(`/${locale}`)) && !request.nextUrl.pathname.startsWith('/_next')) {
+        return NextResponse.redirect(new URL(`/${locale}${request.nextUrl.pathname}`, request.url))
+    }
 
     return NextResponse.next()
 }
