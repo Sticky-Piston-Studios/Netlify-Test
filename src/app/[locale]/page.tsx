@@ -10,6 +10,7 @@ import StickyWebPlatformLogoText from '@/assets/images/sticky_web_platform_logo_
 import Link from 'next/link';
 import NavBar from '@/components/landing_page/navbar';
 import PostForm from '@/components/post-form';
+import HelloDisplay from '@/components/hello-display';
 
 
 export default async function Page({ 
@@ -37,6 +38,7 @@ export default async function Page({
             <Image src={StickyWebPlatformLogoText.src} alt='' className="mx-auto w-full h-auto" width={1000} height={1000} priority/>
           </div>
           <PostForm/>
+          <HelloDisplay/>
 
         </div>
       </div>
