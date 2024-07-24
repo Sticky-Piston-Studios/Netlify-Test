@@ -1,13 +1,20 @@
 // functions/createTextFile.js
 const fs = require('fs');
 const path = require('path');
+import { getStore } from "@netlify/blobs";
+import type { Context } from "@netlify/functions";
+
 
 exports.handler = async (event, context) => {
-  try {
-    const { title, text } = JSON.parse(event.body);
-    const filePath = path.join('/tmp', `${title}.txt`);
 
-    fs.writeFileSync(filePath, text);
+
+  
+  try {
+        const { title, text } = JSON.parse(event.body);
+    const construction = getStore("construction");
+
+    await construction.setJSON("Post_" + {title}, { title: {title}, text: {text} });
+  
 
     return {
       statusCode: 200,

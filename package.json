@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@netlify/blobs": "^8.0.0",
+    "@netlify/functions": "^2.8.1",
     "accept-language": "^3.0.18",
     "fitty": "^2.4.2",
     "i18next": "^23.8.0",
