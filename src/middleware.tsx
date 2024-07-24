@@ -11,6 +11,12 @@ export function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
+  if (request.nextUrl.pathname. startsWith('/admin')) {
+    return NextResponse.next();
+  }
+
+//http://localhost:3000/admin/index.html
+
     //Try to get the higheset priority locale from the Accept-Language header
     //(Which stores data in such format: "en-US,en;q=0.9,fr;q=0.8")
     let locale = acceptLanguage.get(request.headers.get('Accept-Language'))
