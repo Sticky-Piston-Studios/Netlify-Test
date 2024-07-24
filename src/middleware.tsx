@@ -7,7 +7,7 @@ import localeConfig from "@/../locale.config";
 export function middleware(request: NextRequest) {
 
  // Allow requests to Netlify functions to pass through
- if (request.nextUrl.pathname. startsWith('/.netlify/functions')) {
+ if (request.nextUrl.pathname. startsWith('/.netlify')) {
     return NextResponse.next();
   }
 
